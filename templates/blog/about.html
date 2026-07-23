@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+<title>{% block title %}About{% endblock title %}</title>
+{% block content %}
+    <h1>{{ header }}</h1>
+
+    <div>
+        {% for contact in contacts.values %}
+            <p>{{ contact.0 }}: {{ contact.1 }}</p>
+        {% endfor %}
+    </div>
+
+
+{% endblock content %}
