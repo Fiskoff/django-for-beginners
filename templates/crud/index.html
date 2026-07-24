@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+    <title>{% block title %}CRUD Index{% endblock title %}</title>
+{% block content %}
+    <table>
+        {{ form.as_table }}
+    </table>
+{% endblock content %}
