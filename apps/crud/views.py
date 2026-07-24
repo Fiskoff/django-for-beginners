@@ -1,14 +1,16 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from apps.crud.forms import UserForm
+from apps.crud.models import Person
 
 
 def index(request):
+    people = Person.objects.all()
+    return render(request, 'crud/index.html', {'people': people})
+
+def create(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        age = request.POST.get('age')
-        return HttpResponse(f'<h2>Привет, {name}, твой возраст: {age}</h2>')
-    else:
-        user_form = UserForm()
-        return render(request, 'crud/index.html', {'form': user_form})
+        person = Person()
+        person.name = request.POST.get('name')
+        person.age = request.POST.get('age')
+        person.save()
+    return redirect('index')
