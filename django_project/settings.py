@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'apps.blog',
     'apps.post',
     'apps.orm_method',
+    'apps.crud',
 ]
 
 MIDDLEWARE = [
