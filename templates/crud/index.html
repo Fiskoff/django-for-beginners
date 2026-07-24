@@ -1,11 +1,44 @@
 {% extends "base.html" %}
+{% load static %}
     <title>{% block title %}CRUD Index{% endblock title %}</title>
 {% block content %}
-    <form method="POST">
-        {% csrf_token %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <div>
+        {% for person in people %}
         <table>
-            {{ form.as_table }}
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ person.id }}</td>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.age }}</td>
+                </tr>
+            </tbody>
         </table>
-        <input type="submit" value="Send" >
+        {% endfor %}
+    </div>
+
+    <div>
+        <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Введите имя</label><br>
+            <input type="text" name="name" value="{{ person.name }}"/>
+        </p>
+        <p>
+            <label>Введите возраст</label><br>
+            <input type="number" name="age" value="{{ person.age }}"/>
+        </p>
+        <p>
+            <input type="submit" value="Сохранить">
+        </p>
     </form>
+    </div>
+
 {% endblock content %}
