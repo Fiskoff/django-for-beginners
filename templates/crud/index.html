@@ -11,6 +11,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Age</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,6 +19,11 @@
                     <td>{{ person.id }}</td>
                     <td>{{ person.name }}</td>
                     <td>{{ person.age }}</td>
+                    <td>
+                        <a href="edit/{{ person.id }}">Изменить</a>
+                        |
+                        <a href="delete/{{ person.id }}">Удалить</a>
+                    </td>
                 </tr>
             </tbody>
         </table>

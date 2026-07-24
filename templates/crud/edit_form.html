@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+    <title>{% block title %}CRUD Index{% endblock title %}</title>
+{% block content %}
+    <div>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <p>
+                <label>Измени имя</label><br>
+                <input type="text" name="name" value="{{ person.name }}" placeholder="{{ person.name }}"/>
+            </p>
+            <p>
+                <label>Измени возраст</label><br>
+                <input type="number" name="age" value="{{ person.age }}" placeholder="{{ person.age }}"/>
+            </p>
+            <p>
+                <input type="submit" value="Сохранить">
+            </p>
+        </form>
+    </div>
+
+{% endblock content %}
