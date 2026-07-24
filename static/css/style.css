@@ -1,0 +1,15 @@
+table {
+    width: 30%;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f1f0e9;
+    color: #451a91;
+}
